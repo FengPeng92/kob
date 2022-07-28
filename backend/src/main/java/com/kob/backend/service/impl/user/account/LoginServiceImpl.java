@@ -21,9 +21,7 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public Map<String, String> getToken(String username, String password) {
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
-
         Authentication authenticate = authenticationManager.authenticate(authenticationToken);
-
         UserDetailsImpl loginUser = (UserDetailsImpl) authenticate.getPrincipal();
 
         User user = loginUser.getUser();
